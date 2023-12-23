@@ -1,37 +1,13 @@
-//this is to create basic hello world program in react
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World From React!"
-);
+import React from "react";
+import ReactDOM from "react-dom";
+
+//JSX is a javascript syntax which is used to create react elements
+//JSX is not HTML in JS this is HTML-like syntax
+//when the jsxHeading is executed then it will get converts into react elements
+//babel is the thing which converts JSX to react this is called as transpiler this is present inside parcel
+
+const jsxHeading = <h1 id="heading">Namaste React Using JSX</h1>;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
 
-/* this is to create nested tags in react 
-
-<div id="parent">
-  <div id="child">
-     <h1>Im h1 tag inside nedted div tags </h1>
-     <h2>Im h2 tag  inside nested div tags</h2>
-  </div>
-</div>
-
-react.createElement is a object when its rendering it will generate 
-html code and put it on the browser
-*/
-
-const h = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },
-    [React.createElement("h1", {}, "Im h1 tag  inside nested div tags"),React.createElement("h2", {}, "Im h2 tag  inside nested div tags")]
-  )
-);
-
-const root1 = ReactDOM.createRoot(document.getElementById("root"));
-
-root1.render(h);
-
-
+root.render(jsxHeading);
