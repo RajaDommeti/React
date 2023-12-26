@@ -2,7 +2,8 @@ import { CDN_LINK } from "../utils/constants";
 
 export const RestaurentCard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = resData;
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
+    resData?.info;
   return (
     <div
       className="res-card"
