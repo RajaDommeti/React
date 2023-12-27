@@ -57,3 +57,9 @@ import {Component} from "Path";
 (Normal JS utility functions)
 -useState() -SuperPowerful State Variable in React
 -useEffect()
+
+# Routing in web apps
+
+-Client side routing
+-Server side routing
+

@@ -21,6 +21,7 @@
 .nav-items > ul > li {
   padding: 10px;
   margin: 10px;
+
 }
 
 .res-container {
@@ -32,6 +33,7 @@
   margin: 5px;
   width: 200px;
   padding: 5px;
+  height: 500px;
 }
 
 .res-card :hover {
