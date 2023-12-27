@@ -13,32 +13,33 @@ const RestaurentMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-
-    const json = await data.json();
-
-    setResInfo(json.data);
+    try {
+      const data = await fetch(MENU_API + resId);
+      const json = await data.json();
+      setResInfo(json.data);
+    } catch (error) {
+      console.error("Error fetching menu:", error);
+    }
   };
 
   if (resInfo === null) return <Shimmer />;
 
-  const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards[0]?.card?.card?.info;
-
-  const { deliveryTime } = resInfo?.cards[0]?.card?.card?.info.sla;
-
-  const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
+  // Ensure that the necessary properties exist before destructuring
+  const restaurantInfo = resInfo?.cards[0]?.card?.card?.info || {};
+  const deliveryInfo = resInfo?.cards[0]?.card?.card?.info?.sla || {};
+  const itemCards =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card
+      ?.itemCards || [];
 
   console.log(itemCards);
 
   return (
     <div className="menu">
-      <h1>{name}</h1>
+      <h1>{restaurantInfo.name}</h1>
       <p>
-        {cuisines}-{costForTwoMessage}
+        {restaurantInfo.cuisines}-{restaurantInfo.costForTwoMessage}
       </p>
-      <h3>{deliveryTime} Mins</h3>
+      <h3>{deliveryInfo.deliveryTime} Mins</h3>
       <h2>Menu</h2>
 
       <ul>
