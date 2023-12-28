@@ -28,8 +28,6 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    console.log(filteredRestaurents);
-
     if (listOfRestaurents === 0) {
       return <Shimmer />;
     }
